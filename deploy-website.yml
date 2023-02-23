@@ -27,7 +27,7 @@
 
     - name: download web files from github
       get_url:
-        url: https://github.com/ojotosin/ansible-playbooks/blob/main/jupiter-main.zip
+        url: https://github.com/ojotosin/ansible-playbooks/find/main
         dest: /var/www/html/
 
     - name: unzip the zip folder
