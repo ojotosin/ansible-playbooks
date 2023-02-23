@@ -27,7 +27,7 @@
 
     - name: download web files from github
       get_url:
-        url: https://github.com/ojotosin/ansible-playbooks/find/main.zip
+        url: https://github.com/azeezsalu/jupiter/archive/refs/heads/main.zip
         dest: /var/www/html/
 
     - name: unzip the zip folder
