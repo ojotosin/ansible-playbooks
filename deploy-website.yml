@@ -8,7 +8,7 @@
   tasks:
     - name: update ec2 instance
       yum:
-        name: "*"
+        name: "*"   # gets all the servers
         state: latest
         update_cache: yes 
 
@@ -22,33 +22,33 @@
 
     - name: download web files from github
       get_url:
-        url: 
-        dest: 
+        url: https://github.com/ojotosin/ansible-playbooks/blob/main/jupiter-main.zip
+        dest: /var/www/html/
 
     - name: unzip the zip folder
       ansible.builtin.unarchive:
-        src: 
-        dest: 
-        remote_src: 
+        src: /var/www/html/jupiter-main.zip
+        dest: /var/www/html
+        remote_src: yes
 
     - name: copy webfiles from the jupiter-main directory to the html directory
       copy: 
-        src: 
-        dest: 
-        remote_src: 
+        src: /var/www/html/jupiter-main/
+        dest: /var/www/html
+        remote_src: yes
 
     - name: remove the jupiter-main directory
       file: 
-        path: 
-        state: 
+        path: /var/www/html/jupiter-main
+        state: absent
 
     - name: remove the jupiter-main.zip folder
       file: 
-        path: 
-        state: 
+        path: /var/www/html/jupiter-main.zip
+        state: absent
 
     - name: start apache server, if not started
       ansible.builtin.service:
-        enabled: 
-        name: 
-        state:
+        enabled: yes
+        name: httpd
+        state: started
