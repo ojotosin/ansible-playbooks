@@ -12,6 +12,11 @@
         state: latest
         update_cache: yes 
 
+    - name: install apache unzip
+      yum:
+        name: unzip
+        state: latest
+
     - name: install apache server
       yum:
         name: httpd
